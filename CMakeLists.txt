@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 99)
 # --- Raylib Configuration ---
 # Set this to the root folder of your raylib installation.
 # For example: "C:/raylib/raylib-4.5.0"
-set(RAYLIB_PATH "C:/RAYLIB/raylib-5.5_win64_mingw-w64")
+set(RAYLIB_PATH "RAYLIB/raylib-5.5_win64_mingw-w64")
 # --- End of Raylib Configuration ---
 
 # Add the raylib header files to the include path
