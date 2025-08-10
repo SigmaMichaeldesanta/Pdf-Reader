@@ -9,10 +9,9 @@
 
 const int screenWidth = 800;
 const int screenHeight = 600;
-const int MIN_WIDTH  = 600;
-const int MIN_HEIGHT = 400;
+const int MIN_WIDTH  = 800;
+const int MIN_HEIGHT = 600;
 const uint32_t FONT_ID_BODY_16 = 0;
-
 
 
 void HandleClayError(Clay_ErrorData errorData) {
@@ -71,7 +70,6 @@ int main(void) {
                 (h < MIN_HEIGHT) ? MIN_HEIGHT : h
             );
         }
-
         Clay_SetLayoutDimensions((Clay_Dimensions) {
         .width = GetScreenWidth(),
         .height = GetScreenHeight()
@@ -92,6 +90,7 @@ int main(void) {
             },
             .backgroundColor = {242, 242, 240, 255}
         }) { // Child Element
+
             CLAY({
             CLAY_ID("HeaderBar"),
             .layout = {
@@ -101,11 +100,20 @@ int main(void) {
 
                 },
                 .childGap = 10,
-                .layoutDirection = CLAY_LEFT_TO_RIGHT
+                .layoutDirection = CLAY_LEFT_TO_RIGHT,
+                .padding = { 10, 10, 10, 10 }
             },
             .backgroundColor = {210, 205, 200, 255},
                 .cornerRadius = 5
         }) {//Header buttons are here
+                CLAY({
+        .layout = {
+            .sizing = {
+                .width = CLAY_SIZING_GROW(),
+                .height = CLAY_SIZING_GROW()
+            }
+        }
+    }) {}
                 RenderHeaderButton(CLAY_STRING("Home"));
                 RenderHeaderButton(CLAY_STRING("Files"));
                 RenderHeaderButton(CLAY_STRING("Favorite"));
